@@ -40,8 +40,10 @@ sunset_time = dt.datetime.utcfromtimestamp(response['sys']['sunset'] + response[
 x = f"Temperature in {CITY} is {temp_cel:.2f}°C or {temp_fah:.2f}°F \r\n"
 y = f"Temperature in {CITY} feels like {feels_like_cel:.2f}°C or {feels_like_fah:.2f}°F \r\n"
 z = x + y
-
-if temp_fah < 75 and temp_fah >= 70:
+if temp_fah >= 75:
+    z0 = "No jacket needed it's hot AF!"
+    xyz = z + z0
+elif temp_fah < 75 and temp_fah >= 70:
     z1 = "Possible jacket needed due to mild weather."
     xyz = z + z1
 elif temp_fah <= 69 and temp_fah >= 60:
